@@ -106,7 +106,7 @@ export async function POST(req: Request) {
     }
 
     const content = [
-      `**new message from portfolio**`,
+      `**new message!**`,
       `**name:** ${name}`,
       email ? `**email:** ${email}` : `**email:** (not provided)`,
       "",

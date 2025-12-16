@@ -177,7 +177,7 @@ src/
 │  ├─ layout/                             # Hero, Footer, Providers
 │  ├─ sections/                           # ExperienceList, EducationList, ProjectList, StackList
 │  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard
-│  ├─ vibe-check/                         # Vibing, SlideToVibeButton
+│  ├─ vibe/                         # Vibing, SlideToVibeButton
 │  ├─ contact/                            # ContactForm
 │  └─ ui/                                 # HelloLoader, CustomScrollArea, InitialSplash, Return, ResumeViewer, TimeDisplay, ThankYouContent
 ├─ hooks/

@@ -1,5 +1,5 @@
 import { constructMetadata } from "@/lib/site-config";
-import Vibing from "../../components/vibe-check/Vibing";
+import Vibing from "../../components/vibe/Vibing";
 
 export const metadata = constructMetadata({
   title: "slide to vibe",
