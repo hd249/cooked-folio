@@ -179,7 +179,7 @@ src/
 │  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard
 │  ├─ vibe-check/                         # Vibing, SlideToVibeButton
 │  ├─ contact/                            # ContactForm
-│  └─ ui/                                 # HelloLoader, InitialSplash, ThankYouContent, TimeDisplay, Return, ResumeViewer
+│  └─ ui/                                 # HelloLoader, CustomScrollArea, InitialSplash, Return, ResumeViewer, TimeDisplay, ThankYouContent
 ├─ hooks/
 │  └─ useDiscordPresence.ts
 └─ lib/

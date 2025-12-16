@@ -1,5 +1,6 @@
 "use client";
 
+import { CustomScrollArea } from "@/components/ui/CustomScrollArea";
 import { motion } from "framer-motion";
 import useSWR from "swr";
 
@@ -100,15 +101,13 @@ export function GithubActivityCard() {
 
         <div className="text-muted-foreground md:text-right pl-1 md:pl-0">
           {hasActivity ? (
-            <>
-              <p>
-                Coding in{" "}
-                <span className="font-semibold text-foreground">
-                  {activity!.data!.name}
-                </span>
-                {elapsed && ` • ${elapsed}`}
-              </p>
-            </>
+            <p>
+              Coding in{" "}
+              <span className="font-semibold text-foreground">
+                {activity!.data!.name}
+              </span>
+              {elapsed && ` • ${elapsed}`}
+            </p>
           ) : (
             <p className="opacity-60">Currently touching grass</p>
           )}
@@ -116,27 +115,29 @@ export function GithubActivityCard() {
       </div>
 
       <div className="space-y-2 text-xs">
-        <div className="flex gap-[3px] overflow-x-auto pb-2 scrollbar-hide">
-          {calendar.weeks.map((week, wIdx) => (
-            <div key={wIdx} className="flex flex-col gap-[3px]">
-              {week.contributionDays.map((day, dIdx) => (
-                <motion.div
-                  key={day.date}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.2,
-                    delay: (wIdx * 7 + dIdx) * 0.002,
-                  }}
-                  className={`h-2.5 w-2.5 md:h-3 md:w-3 rounded-[2px] ${getIntensityClass(
-                    day.contributionCount
-                  )}`}
-                  title={`${day.date}: ${day.contributionCount} contributions`}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+        <CustomScrollArea showFadeEdges>
+          <div className="flex gap-[3px] pb-1">
+            {calendar.weeks.map((week, wIdx) => (
+              <div key={wIdx} className="flex flex-col gap-[3px]">
+                {week.contributionDays.map((day, dIdx) => (
+                  <motion.div
+                    key={day.date}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.2,
+                      delay: (wIdx * 7 + dIdx) * 0.002,
+                    }}
+                    className={`h-2.5 w-2.5 md:h-3 md:w-3 rounded-[2px] ${getIntensityClass(
+                      day.contributionCount
+                    )}`}
+                    title={`${day.date}: ${day.contributionCount} contributions`}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+        </CustomScrollArea>
 
         <div className="flex items-center justify-end gap-2 text-[10px] text-muted-foreground pr-1 md:pr-0">
           <span>Less</span>
