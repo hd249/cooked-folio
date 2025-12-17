@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import Return from "@/components/ui/Return";
-import { SlideToVibeButton } from "@/components/vibe/SlideToVibeButton";
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import Return from "@/components/ui/Return"
+import { SlideToVibeButton } from "@/components/vibe/SlideToVibeButton"
+import { cn } from "@/lib/utils"
+import { AnimatePresence, motion } from "framer-motion"
 import {
   AlertTriangle,
   Pause,
@@ -13,9 +13,11 @@ import {
   Volume2,
   VolumeX,
   X,
-} from "lucide-react";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+} from "lucide-react"
+import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
 
 const audioFiles = [
   "/audio/song1.mp3",
@@ -23,7 +25,7 @@ const audioFiles = [
   "/audio/song3.mp3",
   "/audio/song4.mp3",
   "/audio/song5.mp3",
-];
+]
 
 const cyclingImages = [
   "/images/monkeys/monkey-1.png",
@@ -31,7 +33,7 @@ const cyclingImages = [
   "/images/monkeys/monkey-3.png",
   "/images/monkeys/monkey-4.png",
   "/images/monkeys/monkey-5.png",
-];
+]
 
 const ANGRY_MESSAGES = [
   "Bruh, you just killed the vibe! Top 10 Anime Betrayals",
@@ -39,149 +41,149 @@ const ANGRY_MESSAGES = [
   "Who gave you the aux?",
   "Explain yourself.",
   "Unbelievable! Ruined it.",
-];
+]
 
 export default function Vibing() {
-  const [mounted, setMounted] = useState(false);
-  const [hasEntered, setHasEntered] = useState(false);
-  const [isPreparing, setIsPreparing] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [mounted, setMounted] = useState(false)
+  const [hasEntered, setHasEntered] = useState(false)
+  const [isPreparing, setIsPreparing] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(false)
 
-  const [currentSong, setCurrentSong] = useState<string | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isChangingSong, setIsChangingSong] = useState(false);
+  const [currentSong, setCurrentSong] = useState<string | null>(null)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isChangingSong, setIsChangingSong] = useState(false)
 
-  const [pauseCount, setPauseCount] = useState(0);
-  const [showAngryState, setShowAngryState] = useState(false);
+  const [pauseCount, setPauseCount] = useState(0)
+  const [showAngryState, setShowAngryState] = useState(false)
 
-  const [showSongModal, setShowSongModal] = useState(false);
-  const [songSuggestion, setSongSuggestion] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSongModal, setShowSongModal] = useState(false)
+  const [songSuggestion, setSongSuggestion] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
-  >("idle");
+  >("idle")
 
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null)
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true)
     const randomSong =
-      audioFiles[Math.floor(Math.random() * audioFiles.length)];
-    setCurrentSong(randomSong);
-  }, []);
+      audioFiles[Math.floor(Math.random() * audioFiles.length)]
+    setCurrentSong(randomSong)
+  }, [])
 
   useEffect(() => {
-    if (!hasEntered || !isPlaying) return;
+    if (!hasEntered || !isPlaying) return
     const id = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % cyclingImages.length);
-    }, 4000);
-    return () => clearInterval(id);
-  }, [hasEntered, isPlaying]);
+      setCurrentImageIndex((prev) => (prev + 1) % cyclingImages.length)
+    }, 4000)
+    return () => clearInterval(id)
+  }, [hasEntered, isPlaying])
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: NodeJS.Timeout
     if (hasEntered && !isPlaying) {
       timeout = setTimeout(() => {
-        setShowAngryState(true);
-      }, 2000);
+        setShowAngryState(true)
+      }, 2000)
     } else {
-      setShowAngryState(false);
+      setShowAngryState(false)
     }
-    return () => clearTimeout(timeout);
-  }, [hasEntered, isPlaying]);
+    return () => clearTimeout(timeout)
+  }, [hasEntered, isPlaying])
 
   useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
+    const audio = audioRef.current
+    if (!audio) return
 
-    audio.volume = 0.2;
+    audio.volume = 0.2
 
     if (isPlaying && !isMuted) {
-      const playPromise = audio.play();
+      const playPromise = audio.play()
       if (playPromise !== undefined) {
         playPromise.catch((e) =>
           console.log("Autoplay waiting for user interaction")
-        );
+        )
       }
     } else {
-      audio.pause();
+      audio.pause()
     }
-  }, [isPlaying, isMuted, currentSong]);
+  }, [isPlaying, isMuted, currentSong])
 
   const handleEnter = () => {
-    if (hasEntered || isPreparing) return;
+    if (hasEntered || isPreparing) return
 
-    setIsPreparing(true);
+    setIsPreparing(true)
 
     setTimeout(() => {
-      setHasEntered(true);
-      setIsPlaying(true);
-      setIsPreparing(false);
-    }, 800);
-  };
+      setHasEntered(true)
+      setIsPlaying(true)
+      setIsPreparing(false)
+    }, 800)
+  }
 
   const handleTogglePlayPause = () => {
     if (isPlaying) {
-      setIsPlaying(false);
-      setPauseCount((prev) => prev + 1);
+      setIsPlaying(false)
+      setPauseCount((prev) => prev + 1)
     } else {
-      setIsPlaying(true);
+      setIsPlaying(true)
     }
-  };
+  }
 
   const handleChangeSong = () => {
-    if (isChangingSong) return;
-    setIsChangingSong(true);
-    const availableSongs = audioFiles.filter((song) => song !== currentSong);
+    if (isChangingSong) return
+    setIsChangingSong(true)
+    const availableSongs = audioFiles.filter((song) => song !== currentSong)
     const newSong =
-      availableSongs[Math.floor(Math.random() * availableSongs.length)];
+      availableSongs[Math.floor(Math.random() * availableSongs.length)]
 
-    setIsPlaying(false);
+    setIsPlaying(false)
     setTimeout(() => {
-      setCurrentSong(newSong);
-      setIsPlaying(true);
-      setIsChangingSong(false);
-    }, 300);
-  };
+      setCurrentSong(newSong)
+      setIsPlaying(true)
+      setIsChangingSong(false)
+    }, 300)
+  }
 
   const handleSubmitSong = async () => {
-    if (!songSuggestion.trim() || isSubmitting) return;
+    if (!songSuggestion.trim() || isSubmitting) return
 
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
 
     try {
       const res = await fetch("/api/song-suggestion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ song: songSuggestion.trim() }),
-      });
+      })
 
-      if (!res.ok) throw new Error("failed to submit");
+      if (!res.ok) throw new Error("failed to submit")
 
-      setSubmitStatus("success");
-      setSongSuggestion("");
+      setSubmitStatus("success")
+      setSongSuggestion("")
 
       setTimeout(() => {
-        setShowSongModal(false);
-        setSubmitStatus("idle");
-      }, 1500);
+        setShowSongModal(false)
+        setSubmitStatus("idle")
+      }, 1500)
     } catch (e) {
-      console.error(e);
-      setSubmitStatus("error");
+      console.error(e)
+      setSubmitStatus("error")
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   const getAngryMessage = () => {
-    const index = Math.max(0, pauseCount - 1) % ANGRY_MESSAGES.length;
-    return ANGRY_MESSAGES[index];
-  };
+    const index = Math.max(0, pauseCount - 1) % ANGRY_MESSAGES.length
+    return ANGRY_MESSAGES[index]
+  }
 
-  if (!mounted) return <div className="h-screen w-full bg-background" />;
+  if (!mounted) return <div className="h-screen w-full bg-background" />
 
   return (
     <div className="h-screen w-full bg-background text-foreground flex flex-col items-center justify-center overflow-hidden relative px-4">
@@ -344,7 +346,7 @@ export default function Vibing() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-card border border-white/10 p-6 rounded-3xl w-full max-w-sm shadow-xl"
+              className="relative bg-card border border-border/50 p-6 rounded-lg w-full max-w-sm shadow-xl"
             >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
@@ -354,29 +356,31 @@ export default function Vibing() {
                   <X size={18} />
                 </button>
               </div>
-              <input
+              
+              <Input
                 autoFocus
-                className="w-full bg-secondary/50 border border-transparent focus:border-primary/50 rounded-xl px-4 py-3 outline-none transition-all"
+                className="w-full"
                 placeholder="Song name or URL..."
                 value={songSuggestion}
                 onChange={(e) => setSongSuggestion(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmitSong()}
               />
-              <button
+              
+              <Button
                 onClick={handleSubmitSong}
                 disabled={isSubmitting || !songSuggestion.trim()}
-                className="w-full mt-4 bg-primary text-primary-foreground font-bold py-3 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="w-full mt-4 h-12 text-sm font-semibold rounded-lg"
               >
                 {isSubmitting
                   ? "Sending..."
                   : submitStatus === "success"
                   ? "Sent!"
                   : "Send Recommendation"}
-              </button>
+              </Button>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
     </div>
-  );
+  )
 }

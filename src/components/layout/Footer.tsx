@@ -1,57 +1,57 @@
-"use client";
+"use client"
 
-import { CAL_URL, FIVERR_URL } from "@/lib/config";
-import { getCalApi } from "@calcom/embed-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Mail, Paperclip, Plus } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { SiFiverr } from "react-icons/si";
+import { CAL_URL, FIVERR_URL } from "@/lib/config"
+import { getCalApi } from "@calcom/embed-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowUpRight, Mail, Paperclip, Plus } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
+import { SiFiverr } from "react-icons/si"
+import { Button } from "@/components/ui/Button"
 
 export function Footer() {
-  const scriptContainerRef = useRef<HTMLDivElement>(null);
-  const [isCalLoading, setIsCalLoading] = useState(false);
+  const scriptContainerRef = useRef<HTMLDivElement>(null)
+  const [isCalLoading, setIsCalLoading] = useState(false)
 
   useEffect(() => {
-    (async function () {
-      const cal = await getCalApi();
-      
+    ;(async function () {
+      const cal = await getCalApi()
       cal("ui", {
         theme: "dark",
         styles: { branding: { brandColor: "#ffffff" } },
         hideEventTypeDetails: true,
         layout: "month_view",
-      });
+      })
 
       cal("on", {
         action: "linkReady",
         callback: () => {
-          setTimeout(() => setIsCalLoading(false), 800);
+          setTimeout(() => setIsCalLoading(false), 800)
         },
-      });
-    })();
-  }, []);
+      })
+    })()
+  }, [])
 
   useEffect(() => {
-    if (!scriptContainerRef.current) return;
-    if (scriptContainerRef.current.innerHTML !== "") return;
+    if (!scriptContainerRef.current) return
+    if (scriptContainerRef.current.innerHTML !== "") return
 
-    const script = document.createElement("script");
-    script.src = "https://avi.byontriq.xyz/api/c?color=06b6d4%3Affffff%3A54C41A";
-    script.async = true;
+    const script = document.createElement("script")
+    script.src = "https://avi.byontriq.xyz/api/c?color=06b6d4%3Affffff%3A54C41A"
+    script.async = true
 
-    scriptContainerRef.current.appendChild(script);
-  }, []);
+    scriptContainerRef.current.appendChild(script)
+  }, [])
 
-  const calLink = CAL_URL.replace(/^https?:\/\/(www\.)?cal\.com\//, "");
+  const calLink = CAL_URL.replace(/^https?:\/\/(www\.)?cal\.com\//, "")
 
   useEffect(() => {
     if (isCalLoading) {
-      const timer = setTimeout(() => setIsCalLoading(false), 6000);
-      return () => clearTimeout(timer);
+      const timer = setTimeout(() => setIsCalLoading(false), 6000)
+      return () => clearTimeout(timer)
     }
-  }, [isCalLoading]);
+  }, [isCalLoading])
 
   return (
     <>
@@ -92,7 +92,8 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
+            {/* BOOK A CALL - Custom Motion Button */}
             <motion.button
               onClick={() => setIsCalLoading(true)}
               data-cal-link={calLink}
@@ -100,62 +101,67 @@ export function Footer() {
               initial="initial"
               whileHover="hover"
               whileTap="tap"
-              className="group relative flex items-center gap-2 pl-1 pr-5 h-12 bg-zinc-900/80 hover:bg-zinc-800 border border-white/5 hover:border-white/20 rounded-full transition-all duration-300 overflow-hidden cursor-pointer shadow-sm"
+              className="
+                group relative flex items-center overflow-hidden
+                h-12 pl-2 pr-5
+                bg-foreground/5 hover:bg-foreground/10 
+                border border-border/50 hover:border-border
+                rounded-lg 
+                transition-all duration-300
+                cursor-pointer
+              "
             >
-              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+              <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-md mr-3">
                 <Image
                   src="/avatar/avatar.png"
                   alt="avi"
-                  width={80}
-                  height={80}
-                  quality={100}
-                  priority
+                  width={60}
+                  height={60}
                   className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ease-in-out group-hover:opacity-0"
                 />
                 <Image
                   src="/avatar/avatar-fill.png"
                   alt="avi"
-                  width={80}
-                  height={80}
-                  quality={100}
-                  priority
+                  width={60}
+                  height={60}
                   className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
                 />
               </div>
+
               <div className="flex items-center">
                 <motion.div
                   variants={{
                     initial: { width: 0, opacity: 0, marginRight: 0 },
                     hover: { width: "auto", opacity: 1, marginRight: 8 },
                   }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className="flex items-center gap-1.5 overflow-hidden whitespace-nowrap"
                 >
                   <Plus className="w-3.5 h-3.5 text-muted-foreground" />
-                  <div className="h-6 w-9 rounded-full bg-zinc-800 border border-white/5 flex items-center justify-center">
-                    <span className="text-[10px] font-medium text-zinc-300">
+                  <div className="h-5 px-1.5 rounded-sm bg-background border border-border flex items-center justify-center">
+                    <span className="text-[10px] font-medium text-foreground">
                       You
                     </span>
                   </div>
                 </motion.div>
-                <span className="text-[15px] font-medium text-zinc-200 group-hover:text-white transition-colors">
+                <span className="text-[15px] font-medium text-foreground">
                   Book a call
                 </span>
               </div>
             </motion.button>
 
-            <Link href={FIVERR_URL} target="_blank">
-              <motion.button
-                whileHover="hover"
-                whileTap="tap"
-                className="group relative flex items-center gap-3 pl-6 pr-5 h-12 bg-transparent hover:bg-[#1dbf73]/5 border border-white/10 hover:border-[#1dbf73]/50 rounded-full transition-all duration-300"
+            {/* HIRE ON FIVERR - Standard Button wrapped in Link */}
+            <Link href={FIVERR_URL} target="_blank" tabIndex={-1}>
+              <Button
+                variant="outline"
+                className="h-12 gap-3 pl-5 pr-4 rounded-lg border-border/50 hover:border-[#1dbf73]/50 hover:bg-[#1dbf73]/5 group"
               >
                 <SiFiverr className="w-5 h-5 text-muted-foreground group-hover:text-[#1dbf73] transition-colors duration-300" />
                 <span className="text-[15px] font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   Hire on Fiverr
                 </span>
                 <ArrowUpRight className="w-4 h-4 text-muted-foreground/50 group-hover:text-[#1dbf73] transition-colors duration-300" />
-              </motion.button>
+              </Button>
             </Link>
           </div>
 
@@ -181,5 +187,5 @@ export function Footer() {
         </div>
       </footer>
     </>
-  );
+  )
 }

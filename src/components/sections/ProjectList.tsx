@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
-import { PROJECTS } from "@/lib/config";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { PROJECTS } from "@/lib/config"
+import { motion } from "framer-motion"
+import { ArrowUpRight, Github } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 export function ProjectList() {
   return (
@@ -22,7 +22,7 @@ export function ProjectList() {
             transition={{ delay: index * 0.1 }}
             className="
               group relative flex items-start md:items-center gap-4 py-4 px-3 -mx-3
-              rounded-xl
+              rounded-lg
               transition-all duration-300 ease-out
               hover:bg-white/5
             "
@@ -31,7 +31,7 @@ export function ProjectList() {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute inset-0 z-0 rounded-xl"
+              className="absolute inset-0 z-0 rounded-lg"
               aria-label={`View ${project.name}`}
             />
 
@@ -83,5 +83,5 @@ export function ProjectList() {
         ))}
       </div>
     </section>
-  );
+  )
 }

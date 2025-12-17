@@ -1,12 +1,16 @@
----
+<div align="center">
 
 # 🍳 cooked-folio
 
-“monke brain code, premium developer vibes.”
+A minimal, high-performance portfolio built with **Next.js**, **Tailwind CSS**, and **Framer Motion**.
+<br/>
+Real-time Discord presence, Spotify integration, slide-to-vibe page, and a chat-style contact form.
 
-A minimal, high-performance portfolio built with Next.js, Tailwind CSS, and Framer Motion. Real-time Discord presence, Spotify now playing, GitHub contribution graph, slide-to-vibe page, and a chat-style contact form.
+<br/>
 
----
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/rZDkhgsXKr)
+
+</div>
 
 ## ⚡ Deploy
 
@@ -165,7 +169,7 @@ src/
 │  │  ├─ github/contributions/route.ts
 │  │  └─ spotify/now-playing/route.ts
 │  ├─ contact/page.tsx                    # wraps ContactForm
-│  ├─ resume/page.tsx                    # wraps ResumeViewer
+│  ├─ resume/page.tsx                     # wraps ResumeViewer
 │  ├─ ty/page.tsx                         # thank-you screen
 │  ├─ what/page.tsx                       # Slide to Vibe page
 │  ├─ layout.tsx
@@ -177,9 +181,9 @@ src/
 │  ├─ layout/                             # Hero, Footer, Providers
 │  ├─ sections/                           # ExperienceList, EducationList, ProjectList, StackList
 │  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard
-│  ├─ vibe/                         # Vibing, SlideToVibeButton
+│  ├─ vibe/                               # Vibing, SlideToVibeButton
 │  ├─ contact/                            # ContactForm
-│  └─ ui/                                 # HelloLoader, CustomScrollArea, InitialSplash, Return, ResumeViewer, TimeDisplay, ThankYouContent
+│  └─ ui/                                 # Button, HelloLoader, CustomScrollArea, Input, InitialSplash, Return, ResumeViewer, TimeDisplay, ThankYouContent
 ├─ hooks/
 │  └─ useDiscordPresence.ts
 └─ lib/

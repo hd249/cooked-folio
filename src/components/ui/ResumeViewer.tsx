@@ -1,20 +1,21 @@
-"use client";
+"use client"
 
-import { Container } from "@/components/common/Container";
-import Return from "@/components/ui/Return";
-import { RESUME_URL } from "@/lib/config";
-import { motion } from "framer-motion";
-import { Download, ExternalLink, FileText } from "lucide-react";
+import { Container } from "@/components/common/Container"
+import Return from "@/components/ui/Return"
+import { Button } from "@/components/ui/Button"
+import { RESUME_URL } from "@/lib/config"
+import { motion } from "framer-motion"
+import { Download, ExternalLink, FileText } from "lucide-react"
 
 export default function ResumeViewer() {
   const getEmbedUrl = (url: string) => {
     if (url.includes("drive.google.com")) {
-      return url.replace(/\/view.*/, "/preview").replace(/\/view$/, "/preview");
+      return url.replace(/\/view.*/, "/preview").replace(/\/view$/, "/preview")
     }
-    return url;
-  };
+    return url
+  }
 
-  const embedUrl = getEmbedUrl(RESUME_URL);
+  const embedUrl = getEmbedUrl(RESUME_URL)
 
   return (
     <Container className="space-y-8">
@@ -31,20 +32,24 @@ export default function ResumeViewer() {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-medium bg-secondary text-secondary-foreground rounded-full hover:bg-secondary/80 transition-colors"
+            tabIndex={-1}
           >
-            <ExternalLink className="w-3.5 h-3.5" />
-            <span>open new tab</span>
+            <Button variant="outline" size="sm" className="gap-2 rounded-lg">
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>open new tab</span>
+            </Button>
           </a>
           
           <a
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-medium bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+            tabIndex={-1}
           >
-            <Download className="w-3.5 h-3.5" />
-            <span>save pdf</span>
+            <Button size="sm" className="gap-2 shadow-lg shadow-primary/20 rounded-lg">
+              <Download className="w-3.5 h-3.5" />
+              <span>save pdf</span>
+            </Button>
           </a>
         </motion.div>
       </div>
@@ -68,7 +73,7 @@ export default function ResumeViewer() {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3 }}
-        className="w-full h-[65vh] md:h-[85vh] bg-card/40 border border-white/5 rounded-2xl overflow-hidden shadow-2xl relative group"
+        className="w-full h-[65vh] md:h-[85vh] bg-card/40 border border-white/5 rounded-lg overflow-hidden shadow-2xl relative group"
       >
         <div className="absolute inset-0 flex items-center justify-center bg-secondary/20 -z-10">
           <span className="animate-pulse text-muted-foreground text-sm">loading document...</span>
@@ -91,5 +96,5 @@ export default function ResumeViewer() {
         * if the embed doesn&apos;t load, use the buttons above. google drive is moody.
       </motion.p>
     </Container>
-  );
+  )
 }

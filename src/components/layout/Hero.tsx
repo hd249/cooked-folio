@@ -1,23 +1,19 @@
-"use client";
+"use client"
 
-import ThemeToggle from "@/components/common/ThemeToggle";
-import DiscordPresenceDot from "@/components/integrations/DiscordPresenceDot";
-import NowPlaying from "@/components/integrations/NowPlaying";
-import TimeDisplay from "@/components/ui/TimeDisplay";
-import { useDiscordPresence } from "@/hooks/useDiscordPresence";
-import { BANNER_IMAGE, DISCORD_LINK, SOCIALS } from "@/lib/config";
-import { motion } from "framer-motion";
-import { Clock, Leaf } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { SiDiscord } from "react-icons/si";
-
-const wavyUnderlineStyles: React.CSSProperties = {
-  textDecoration: "none",
-};
+import ThemeToggle from "@/components/common/ThemeToggle"
+import DiscordPresenceDot from "@/components/integrations/DiscordPresenceDot"
+import NowPlaying from "@/components/integrations/NowPlaying"
+import TimeDisplay from "@/components/ui/TimeDisplay"
+import { useDiscordPresence } from "@/hooks/useDiscordPresence"
+import { BANNER_IMAGE, DISCORD_LINK, SOCIALS } from "@/lib/config"
+import { motion } from "framer-motion"
+import { Clock, Leaf } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { SiDiscord } from "react-icons/si"
 
 export function Hero() {
-  const discordStatus = useDiscordPresence();
+  const discordStatus = useDiscordPresence()
 
   return (
     <section className="relative mb-10 font-mono">
@@ -59,7 +55,10 @@ export function Hero() {
 
       <div className="px-1">
         <div className="relative -mt-24 mb-6 w-max">
-          <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-background">
+          <div 
+            className="relative h-20 w-20 md:h-24 md:w-24 overflow-hidden shadow-2xl ring-4 ring-background bg-background z-10"
+            style={{ borderRadius: "var(--radius-lg)" }}
+          >
             <Image
               src="/avatar/avatar-full.png"
               alt="avi"
@@ -69,8 +68,11 @@ export function Hero() {
             />
           </div>
 
-          <div className="absolute -bottom-1 -right-1">
-            <DiscordPresenceDot status={discordStatus} />
+          <div className="absolute -bottom-1 -right-1 z-20">
+            <DiscordPresenceDot 
+              status={discordStatus} 
+              className="w-6 h-6 md:w-7 md:h-7 border-[4px]" 
+            />
           </div>
         </div>
 
@@ -91,7 +93,6 @@ export function Hero() {
             <a
               href="https://byontriq.xyz"
               target="_blank"
-              style={wavyUnderlineStyles}
               className="wavy-underline font-semibold text-foreground hover:text-primary transition-colors"
             >
               @Byontriq
@@ -121,13 +122,13 @@ export function Hero() {
                 aria-label={social.platform}
                 className="text-muted-foreground transition-all duration-200 hover:-translate-y-1"
                 onMouseEnter={(e) => {
-                  const el = e.currentTarget.firstElementChild as HTMLElement;
+                  const el = e.currentTarget.firstElementChild as HTMLElement
                   if (el && (social as any).color)
-                    el.style.color = (social as any).color;
+                    el.style.color = (social as any).color
                 }}
                 onMouseLeave={(e) => {
-                  const el = e.currentTarget.firstElementChild as HTMLElement;
-                  if (el) el.style.color = "";
+                  const el = e.currentTarget.firstElementChild as HTMLElement
+                  if (el) el.style.color = ""
                 }}
               >
                 <social.icon className="w-5 h-5 md:w-6 md:h-6" />
@@ -152,5 +153,5 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
-  );
+  )
 }

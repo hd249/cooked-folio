@@ -4,18 +4,17 @@
 
 @layer base {
   :root {
-    --background: 40 30% 94%;        
-    
-    --foreground: 230 35% 7%;         
-    --card: 0 0% 100%;                
+    --background: 40 30% 94%;
+    --foreground: 230 35% 7%;
+    --card: 0 0% 100%;
     --card-foreground: 230 35% 7%;
     --popover: 0 0% 100%;
     --popover-foreground: 230 35% 7%;
-    --primary: 217 91% 60%;           
+    --primary: 217 91% 60%;
     --primary-foreground: 222 47% 11%;
-    --secondary: 40 20% 90%;          
+    --secondary: 40 20% 90%;
     --secondary-foreground: 230 35% 7%;
-    --muted: 40 20% 90%;              
+    --muted: 40 20% 90%;
     --muted-foreground: 215 20% 40%;
     --accent: 40 20% 90%;
     --accent-foreground: 230 35% 7%;
@@ -24,10 +23,12 @@
     --border: 220 13% 85%;
     --input: 220 13% 85%;
     --ring: 217 91% 60%;
+    --radius: 0.5rem;
+    --radius-lg: 1.75rem;
   }
 
   .dark {
-    --background: 226 51% 8%; 
+    --background: 226 51% 8%;
     --foreground: 210 40% 98%;
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
@@ -84,9 +85,9 @@
 }
 
 @layer utilities {
-.layout-container {
-  @apply mx-auto max-w-2xl px-6 md:px-0 py-3 md:py-5;
-}
+  .layout-container {
+    @apply mx-auto max-w-2xl px-6 md:px-0 py-3 md:py-5;
+  }
 
   .glass-card {
     @apply bg-card/40 border border-white/5 hover:bg-card/60 transition-colors duration-300;
@@ -111,19 +112,23 @@
 }
 
 @keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
 }
 
 .animate-wiggle {
   animation: wiggle 1s ease-in-out infinite;
 }
 
-
 .wavy-underline {
   position: relative;
   display: inline-block;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .wavy-underline::after {
@@ -133,7 +138,8 @@
   bottom: -3px;
   width: 100%;
   height: 6px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%233b82f6' stroke-width='2' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%; 
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%233b82f6' stroke-width='2' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E")
+    repeat-x 0 100%;
   background-size: 20px 6px;
   animation: wavy-snake 1s linear infinite;
 }
@@ -143,20 +149,24 @@
     background-position-x: 0;
   }
   100% {
-    background-position-x: 20px; 
+    background-position-x: 20px;
   }
 }
 
 .highlight-text {
   display: inline-block;
-  padding: 0.1em 0.5em;
-  border-radius: 999px;
-  color: #3b82f6; 
-  background-color: rgba(59, 130, 246, 0.1);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius);
+  color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.1);
   line-height: normal;
   vertical-align: baseline;
+  transition: background-color 0.2s ease;
 }
 
+.highlight-text:hover {
+  background-color: hsl(var(--primary) / 0.15);
+}
 
 .cal-embed-popup-wrapper {
   padding: 16px !important;

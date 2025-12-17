@@ -1,89 +1,93 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
+import Return from "@/components/ui/Return"
+import { Check, Copy } from "lucide-react"
 
 const CopyButton = ({ content }: { content: string }) => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(content);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await navigator.clipboard.writeText(content)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
     } catch (err) {
-      console.error("Failed to copy", err);
+      console.error("Failed to copy", err)
     }
-  };
+  }
 
   return (
-    <button
+    <Button
+      variant="ghost"
+      size="sm"
       onClick={handleCopy}
-      className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all duration-200 group z-10"
+      className="absolute right-2 top-1/2 -translate-y-1/2 h-7 px-2 gap-1.5 rounded-lg border border-white/5 hover:bg-white/10 z-10"
       title="Copy to clipboard"
     >
       {copied ? (
         <>
-          <svg className="w-3.5 h-3.5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
+          <Check className="w-3.5 h-3.5 text-green-400" />
           <span className="text-[10px] font-semibold text-green-400">Copied!</span>
         </>
       ) : (
         <>
-          <svg className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-          </svg>
-          <span className="text-[10px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">Copy</span>
+          <Copy className="w-3.5 h-3.5 text-muted-foreground group-hover:text-foreground" />
+          <span className="text-[10px] font-medium text-muted-foreground group-hover:text-foreground">Copy</span>
         </>
       )}
-    </button>
-  );
-};
+    </Button>
+  )
+}
 
 export default function CopyrightPage() {
-  const [emoji, setEmoji] = useState("🍳");
-  const [t1, setT1] = useState("Cooked");
-  const [t2, setT2] = useState("by");
-  const [t3, setT3] = useState("Avi");
-  const [c1, setC1] = useState("#06b6d4"); // Cyan
-  const [c2, setC2] = useState("#ffffff"); // White
-  const [c3, setC3] = useState("#22c55e"); // Green
-  const [showAvatar, setShowAvatar] = useState(true);
-  const [generatedUrl, setGeneratedUrl] = useState("");
+  const [emoji, setEmoji] = useState("🍳")
+  const [t1, setT1] = useState("Cooked")
+  const [t2, setT2] = useState("by")
+  const [t3, setT3] = useState("Avi")
+  const [c1, setC1] = useState("#06b6d4")
+  const [c2, setC2] = useState("#ffffff")
+  const [c3, setC3] = useState("#22c55e")
+  const [showAvatar, setShowAvatar] = useState(true)
+  const [generatedUrl, setGeneratedUrl] = useState("")
 
   useEffect(() => {
-    const clean = (c: string) => c.trim().replace("#", "");
-    const cl1 = clean(c1);
-    const cl2 = clean(c2);
-    const cl3 = clean(c3);
+    const clean = (c: string) => c.trim().replace("#", "")
+    const cl1 = clean(c1)
+    const cl2 = clean(c2)
+    const cl3 = clean(c3)
 
-    const params = new URLSearchParams();
-    if (emoji && emoji !== "🍳") params.set("emoji", emoji);
-    if (t1 && t1 !== "Cooked") params.set("txt1", t1);
-    if (t2 && t2 !== "by") params.set("txt2", t2);
-    if (t3 && t3 !== "Avi") params.set("txt3", t3);
-    if (!showAvatar) params.set("av", "false");
+    const params = new URLSearchParams()
+    if (emoji && emoji !== "🍳") params.set("emoji", emoji)
+    if (t1 && t1 !== "Cooked") params.set("txt1", t1)
+    if (t2 && t2 !== "by") params.set("txt2", t2)
+    if (t3 && t3 !== "Avi") params.set("txt3", t3)
+    if (!showAvatar) params.set("av", "false")
 
     if (cl1 !== "06b6d4" || cl2 !== "ffffff" || cl3 !== "22c55e") {
-      params.set("color", `${cl1}:${cl2}:${cl3}`);
+      params.set("color", `${cl1}:${cl2}:${cl3}`)
     }
 
-    const origin = typeof window !== "undefined" ? window.location.origin : "";
-    setGeneratedUrl(`${origin}/api/c?${params.toString()}`);
-  }, [emoji, t1, t2, t3, c1, c2, c3, showAvatar]);
+    const origin = typeof window !== "undefined" ? window.location.origin : ""
+    setGeneratedUrl(`${origin}/api/c?${params.toString()}`)
+  }, [emoji, t1, t2, t3, c1, c2, c3, showAvatar])
 
-  const inputClass = "w-full bg-[#0b1021] hover:bg-[#111629] focus:bg-[#111629] border border-white/5 focus:border-blue-500/50 rounded-xl px-4 py-3 outline-none transition-all duration-300 text-sm text-gray-200 placeholder:text-gray-600 shadow-sm focus:ring-1 focus:ring-blue-500/20";
-  const codeInputClass = "w-full bg-[#050b1d] border border-white/10 rounded-xl pl-4 pr-24 py-3.5 text-xs font-mono text-gray-400 focus:text-gray-200 outline-none transition-colors";
+  const inputClass = "bg-[#0b1021] hover:bg-[#111629] focus:bg-[#111629] border-white/5 focus-visible:ring-blue-500/20 text-gray-200 placeholder:text-gray-600"
+  const codeInputClass = "bg-[#050b1d] border-white/10 pr-24 py-3.5 text-xs font-mono text-gray-400 focus-visible:text-gray-200"
 
   return (
-    <div className="layout-container min-h-screen flex items-center justify-center py-12">
+    <div className="layout-container min-h-screen flex flex-col justify-center py-12">
+      <div className="w-full mb-8">
+        <Return />
+      </div>
+
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
         <div className="glass-card rounded-[2rem] p-8 border border-white/10 shadow-2xl shadow-black/40 relative overflow-hidden">
            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px] pointer-events-none" />
 
-          <div className="flex items-center gap-3 mb-8 relative z-10">
-            <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)] animate-pulse" />
+          <div className="mb-8 relative z-10">
             <h2 className="text-xs font-bold tracking-[0.25em] text-gray-500 uppercase">
               Badge Configuration
             </h2>
@@ -92,7 +96,7 @@ export default function CopyrightPage() {
           <div className="space-y-7 relative z-10">
             <div className="space-y-2.5">
               <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase pl-1">Emoji</label>
-              <input 
+              <Input 
                 value={emoji}
                 onChange={(e) => setEmoji(e.target.value)}
                 className={inputClass}
@@ -103,19 +107,19 @@ export default function CopyrightPage() {
             <div className="space-y-2.5">
               <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase pl-1">Text Segments</label>
               <div className="grid grid-cols-3 gap-3">
-                <input 
+                <Input 
                   value={t1}
                   onChange={(e) => setT1(e.target.value)}
                   className={inputClass}
                   placeholder="Cooked"
                 />
-                <input 
+                <Input 
                   value={t2}
                   onChange={(e) => setT2(e.target.value)}
                   className={inputClass}
                   placeholder="by"
                 />
-                <input 
+                <Input 
                   value={t3}
                   onChange={(e) => setT3(e.target.value)}
                   className={inputClass}
@@ -127,19 +131,19 @@ export default function CopyrightPage() {
             <div className="space-y-2.5">
               <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase pl-1">Colors (Hex)</label>
               <div className="grid grid-cols-3 gap-3">
-                <input 
+                <Input 
                   value={c1}
                   onChange={(e) => setC1(e.target.value)}
                   className={inputClass}
                   placeholder="#06b6d4"
                 />
-                <input 
+                <Input 
                   value={c2}
                   onChange={(e) => setC2(e.target.value)}
                   className={inputClass}
                   placeholder="#ffffff"
                 />
-                <input 
+                <Input 
                   value={c3}
                   onChange={(e) => setC3(e.target.value)}
                   className={inputClass}
@@ -157,7 +161,7 @@ export default function CopyrightPage() {
                     onChange={(e) => setShowAvatar(e.target.checked)}
                     className="hidden"
                   />
-                  {showAvatar && <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>}
+                  {showAvatar && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
                 </div>
                 <span className="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Show avatar on hover</span>
               </label>
@@ -169,8 +173,7 @@ export default function CopyrightPage() {
           <div className="glass-card rounded-[2rem] p-8 h-full border border-white/10 shadow-2xl shadow-black/40 flex flex-col relative overflow-hidden">
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-[80px] pointer-events-none" />
 
-            <div className="flex items-center gap-3 mb-8 relative z-10">
-              <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)] animate-pulse" />
+            <div className="mb-8 relative z-10">
               <h2 className="text-xs font-bold tracking-[0.25em] text-gray-500 uppercase">
                 Live Preview
               </h2>
@@ -226,7 +229,7 @@ export default function CopyrightPage() {
               <div className="space-y-2.5">
                 <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase pl-1">Script URL</label>
                 <div className="relative group/copy">
-                  <input 
+                  <Input 
                     readOnly
                     value={generatedUrl}
                     className={codeInputClass}
@@ -239,7 +242,7 @@ export default function CopyrightPage() {
               <div className="space-y-2.5">
                 <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase pl-1">Embed Snippet</label>
                 <div className="relative group/copy">
-                  <input
+                  <Input
                     readOnly
                     value={`<script src="${generatedUrl}"></script>`}
                     className={codeInputClass}
@@ -254,5 +257,5 @@ export default function CopyrightPage() {
 
       </div>
     </div>
-  );
+  )
 }
