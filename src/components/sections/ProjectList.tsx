@@ -24,7 +24,7 @@ export function ProjectList() {
               group relative flex items-start md:items-center gap-4 py-4 px-3 -mx-3
               rounded-lg
               transition-all duration-300 ease-out
-              hover:bg-white/5
+              hover:bg-primary/5 border border-transparent hover:border-primary/10
             "
           >
             <Link
@@ -40,7 +40,7 @@ export function ProjectList() {
                 src={project.image}
                 alt={project.name}
                 fill
-                className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 ease-out"
+                className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 ease-out drop-shadow-sm"
               />
             </div>
 
@@ -58,9 +58,9 @@ export function ProjectList() {
                     className="
                       relative z-10 flex items-center justify-center 
                       w-6 h-6 rounded-full 
-                      bg-zinc-800/50 text-zinc-400
-                      border border-white/5
-                      hover:bg-white hover:text-black hover:scale-110 hover:border-white
+                      bg-background text-muted-foreground
+                      border border-border/60
+                      hover:bg-primary hover:text-primary-foreground hover:scale-110 hover:border-primary
                       transition-all duration-300 ease-out
                       shadow-sm
                     "
@@ -71,12 +71,12 @@ export function ProjectList() {
                 )}
               </div>
 
-              <p className="text-sm text-muted-foreground leading-relaxed md:line-clamp-1 group-hover:text-muted-foreground/80 transition-colors pointer-events-none">
+              <p className="text-sm text-muted-foreground leading-relaxed md:line-clamp-1 group-hover:text-foreground/80 transition-colors pointer-events-none">
                 {project.tagline}
               </p>
             </div>
 
-            <div className="shrink-0 mt-2 md:mt-0 text-muted-foreground/20 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 ease-out pointer-events-none">
+            <div className="shrink-0 mt-2 md:mt-0 text-muted-foreground/30 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 ease-out pointer-events-none">
               <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />
             </div>
           </motion.div>

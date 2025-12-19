@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
+import Return from "@/components/common/Return";
 import { motion } from "framer-motion";
-import Return from "@/components/ui/Return";
+import Image from "next/image";
 
 export default function ThankYouContent() {
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-center p-6">
       <div className="max-w-md w-full text-center space-y-6">
-        
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -25,7 +24,7 @@ export default function ThankYouContent() {
           />
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -34,7 +33,7 @@ export default function ThankYouContent() {
           thanks for joining the meeting
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.5 }}
@@ -44,7 +43,6 @@ export default function ThankYouContent() {
         </motion.p>
 
         <Return className="pt-4 flex justify-center" />
-
       </div>
     </div>
   );

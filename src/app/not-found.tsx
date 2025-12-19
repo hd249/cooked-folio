@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import Return from "@/components/common/Return";
 import Image from "next/image";
-import Return from "@/components/ui/Return";
+import { useEffect, useState } from "react";
 
 export default function NotFound() {
   const [displayText, setDisplayText] = useState("000");
@@ -30,7 +30,7 @@ export default function NotFound() {
         clearInterval(interval);
       }
 
-      iteration += 1 / 25; 
+      iteration += 1 / 25;
     }, 50);
 
     return () => clearInterval(interval);
@@ -48,7 +48,7 @@ export default function NotFound() {
             priority
           />
         </div>
-        
+
         <h1 className="text-7xl md:text-9xl font-mono font-bold tracking-tighter text-foreground">
           {displayText}
         </h1>

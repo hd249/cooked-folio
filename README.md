@@ -8,7 +8,7 @@ Real-time Discord presence, Spotify integration, slide-to-vibe page, and a chat-
 
 <br/>
 
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/rZDkhgsXKr)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/gWRxxKcWDZ)
 
 </div>
 
@@ -177,13 +177,13 @@ src/
 │  ├─ not-found.tsx
 │  └─ page.tsx                            # home
 ├─ components/
-│  ├─ common/                             # Container, ThemeToggle, etc.
+│  ├─ common/                             # Container, ThemeToggle, Buttom, Input, Return
 │  ├─ layout/                             # Hero, Footer, Providers
 │  ├─ sections/                           # ExperienceList, EducationList, ProjectList, StackList
 │  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard
 │  ├─ vibe/                               # Vibing, SlideToVibeButton
 │  ├─ contact/                            # ContactForm
-│  └─ ui/                                 # Button, HelloLoader, CustomScrollArea, Input, InitialSplash, Return, ResumeViewer, TimeDisplay, ThankYouContent
+│  └─ ui/                                 # HelloLoader, CustomScrollArea, InitialSplash, ResumeViewer, TimeDisplay, ThankYouContent
 ├─ hooks/
 │  └─ useDiscordPresence.ts
 └─ lib/

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { STACK } from "@/lib/config"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/Button"
+import { Button } from "@/components/common/Button";
+import { STACK } from "@/lib/config";
+import { motion } from "framer-motion";
 
 export function StackList() {
   const container = {
@@ -13,12 +13,12 @@ export function StackList() {
         staggerChildren: 0.03,
       },
     },
-  }
+  };
 
   const item = {
     hidden: { opacity: 0, scale: 0.9 },
     show: { opacity: 1, scale: 1 },
-  }
+  };
 
   return (
     <section className="mb-16 w-full">
@@ -38,28 +38,31 @@ export function StackList() {
         ))}
       </motion.div>
     </section>
-  )
+  );
 }
 
 function TechBadge({
   item,
   variants,
 }: {
-  item: (typeof STACK)[0]
-  variants: any
+  item: (typeof STACK)[0];
+  variants: any;
 }) {
-  const Icon = item.icon
+  const Icon = item.icon;
   return (
     <motion.div variants={variants}>
       <Button
         variant="ghost"
-        className="h-auto py-2 px-3 md:px-4 bg-secondary/30 hover:bg-secondary/50 border border-white/5 cursor-default gap-2 font-normal"
+        className="group h-auto py-2 px-3 md:px-4 bg-card/50 hover:bg-primary/5 border border-border/50 hover:border-primary/20 cursor-default gap-2.5 font-normal transition-all duration-300 shadow-sm hover:shadow-md"
       >
-        <Icon className="h-4 w-4 md:h-4.5 md:w-4.5" style={{ color: item.color }} />
-        <span className="text-xs md:text-[14px] text-muted-foreground/90">
+        <Icon
+          className="h-4 w-4 md:h-4.5 md:w-4.5 transition-transform duration-300 group-hover:scale-110"
+          style={{ color: item.color }}
+        />
+        <span className="text-xs md:text-[14px] text-muted-foreground group-hover:text-foreground transition-colors duration-300">
           {item.name}
         </span>
       </Button>
     </motion.div>
-  )
+  );
 }
