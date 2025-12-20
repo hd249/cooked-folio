@@ -51,7 +51,7 @@ export const BANNER_IMAGE = "https://cdn.discordapp.com/attachments/134658221298
 
 // External Links
 export const RESUME_URL = "https://drive.google.com/file/d/1WKa36vE76iBqOAcucFTeVxGwsFmSim9g/view?usp=drive_link";
-export const DISCORD_LINK = "https://discord.gg/gWRxxKcWDZ";
+export const DISCORD_LINK = "https://discord.gg/wG9qpfvuQQ";
 export const CAL_URL = "https://cal.com/shahriaravi/15m";
 export const FIVERR_URL = "https://www.fiverr.com/shahriaravi/develop-a-high-performance-custom-website-with-modern-design";
 

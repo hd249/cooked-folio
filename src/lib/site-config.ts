@@ -11,7 +11,7 @@ export const siteConfig = {
   username: "shahriaravi_",
   description: "code alchemist ⚗️ building things. turning ideas into products. founder @byontriq",
   url: BASE_URL,
-  ogImage: "/og-image.png",
+  ogImage: "/og-image.png?v1",
   links: {
     twitter: "https://twitter.com/shahriaravi_",
     github: "https://github.com/shahriaravi",
