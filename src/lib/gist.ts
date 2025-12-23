@@ -141,6 +141,7 @@ export const GIST_CATEGORIES: GistCategory[] = [
             url: "https://www.darkmodedesign.com/?avi",
             description: "a showcase of beautifully designed dark mode websites.",
           },
+      
           {
             name: "Pixel Fika",
             url: "https://pixelfika.com/?avi",
@@ -229,6 +230,7 @@ export const GIST_CATEGORIES: GistCategory[] = [
             url: "https://3dwebsites.design/?avi",
             description: "curated gallery of the best 3d websites and webgl experiences.",
           },
+          
         ],
       },
       {
@@ -293,6 +295,36 @@ export const GIST_CATEGORIES: GistCategory[] = [
           },
         ],
       },
+      {
+        title: "extras",
+        slug: "extras",
+        links: [
+          {
+            name: "Pattern Craft",
+            url: "https://patterncraft.fun/?avi",
+            description: "professional-grade background patterns and gradients. easily copy the code and seamlessly integrate it into your projects.",
+          },
+          {
+            name: "Gradii",
+            url: "https://www.gradii.fun/?avi",
+            description: "create stunning gradients with customizable colors, text, and effects.",
+          },
+        ],
+      },
     ],
   },
+  {
+  title: "Tools",
+  slug: "tools",
+  type: "direct",
+  links: [
+    { name: "raycast", url: "https://www.raycast.com/?avi", description: "the best productivity tool for developers." },
+    { name: "notion", url: "https://www.notion.so/?avi", description: "the all-in-one workspace for your notes, tasks, and projects." },
+    { name: "linear", url: "https://linear.app/?avi", description: "the issue tracking tool for modern software teams." },
+    {name: "todoist", url: "https://todoist.com/?avi", description: "the task manager to organize work and life." },
+    { name: "awesome-nano-banana", url: "https://github.com/PicoTrex/Awesome-Nano-Banana-images", description: "curated collection of fun and creative examples generated with Nano Banana." },
+    { name: "kizzy", url: "https://kizzy.dead8309.xyz", description: "a discord rich presence manager for android." },
+    {name: "blip", url: "https://blip.net/?avi", description: "the easiest way to share stuffs with others." },
+  ],
+},
 ];

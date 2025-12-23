@@ -181,7 +181,7 @@ src/
    ├─ config.ts                           # content & links
    ├─ site-config.ts                      # metadata/SEO
    ├─ gist.ts                             # gist links
-   ├─ gist-contributor.ts                      # gist contributos
+   ├─ gist-contributor.ts                 # gist contributos
    └─ utils.ts
 ```
 
