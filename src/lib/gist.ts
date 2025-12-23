@@ -35,11 +35,6 @@ export const GIST_CATEGORIES: GistCategory[] = [
         description: "free modern ui components built with tailwind css and framer motion.",
       },
       {
-        name: "Smooth UI",
-        url: "https://smoothui.dev/?avi",
-        description: "a collection of smooth, animated ui components for react and next.js projects.",
-      },
-      {
         name: "Magic UI",
         url: "https://magicui.design/?avi",
         description: "50+ free and open-source animated components built with react, typescript, tailwind css, and framer motion.",
@@ -48,11 +43,6 @@ export const GIST_CATEGORIES: GistCategory[] = [
         name: "Skiper UI",
         url: "https://skiper-ui.com/?avi",
         description: "modern ui components and blocks for building stunning websites faster.",
-      },
-      {
-        name: "daisyUI",
-        url: "https://daisyui.com/?avi",
-        description: "the most popular component library for tailwind css. semantic class names for cleaner html.",
       },
       {
         name: "Aceternity UI",

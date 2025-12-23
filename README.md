@@ -153,11 +153,12 @@ export function constructMetadata(/* overrides */) {
 src/
 ├─ app/
 │  ├─ api/
-│  │  ├─ contact/route.ts                 # Discord webhook
+│  │  ├─ contact/route.ts
 │  │  ├─ discord/current-activity/route.ts
 │  │  ├─ discord/presence/route.ts
 │  │  ├─ github/contributions/route.ts
 │  │  └─ spotify/now-playing/route.ts
+│  │  └─ stuffs/route.ts
 │  ├─ contact/page.tsx                    # wraps ContactForm
 │  ├─ resume/page.tsx                     # wraps ResumeViewer
 │  ├─ ty/page.tsx                         # thank-you screen
@@ -170,7 +171,7 @@ src/
 │  ├─ common/                             # Container, ThemeToggle, HelloLoader, CustomScrollArea, InitialSplash
 │  ├─ layout/                             # Hero, Footer, Providers
 │  ├─ sections/                           # ExperienceList, EducationList, ProjectList, StackList
-│  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard
+│  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard, Stuffs
 │  ├─ vibe/                               # Vibing, SlideToVibeButton
 │  ├─ contact/                            # ContactForm
 │  ├─ gist/                               # GistList
@@ -182,6 +183,7 @@ src/
    ├─ site-config.ts                      # metadata/SEO
    ├─ gist.ts                             # gist links
    ├─ gist-contributor.ts                 # gist contributos
+   ├─ stuffs.ts                 # spotify, yt playlist cover images
    └─ utils.ts
 ```
 
