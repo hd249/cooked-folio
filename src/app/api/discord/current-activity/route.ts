@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://avi.byontriq.xyz";
+const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://yoavi.fun";
 
 export const dynamic = "force-dynamic";
 

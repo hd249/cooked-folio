@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://avi.byontriq.xyz";
+const SITE_URL = process.env.NEXT_PUBLIC_URL || "https://yoavi.fun";
 
 const GITHUB_GRAPHQL_URL = "https://api.github.com/graphql";
 

@@ -8,7 +8,7 @@ export const GIST_CONTRIBUTORS: GistContributor[] = [
   {
     name: "Avi",
     avatar: "/avatar/avatar.png",
-    website: "https://avi.byontriq.xyz",
+    website: "https://yoavi.fun",
   },
   {
     name: "Jane Smith",

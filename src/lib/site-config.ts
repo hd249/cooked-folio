@@ -4,7 +4,7 @@ import { Metadata } from "next";
 // 1. BASE CONFIGURATION
 // =================================================================================
 
-const BASE_URL = process.env.NEXT_PUBLIC_URL || "https://avi.byontriq.xyz";
+const BASE_URL = process.env.NEXT_PUBLIC_URL || "https://yoavi.fun";
 
 export const siteConfig = {
   name: "avi",
